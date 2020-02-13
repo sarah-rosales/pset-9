@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  margin-top: 0;
 }
 
 h1 {
@@ -12,6 +13,10 @@ h1 {
   color: #5b8eeb;
 }
 
+.header {
+  background-color: #afe7f0;
+}
+
 h2 {
   margin: 0 auto;
   font-size: 25px;
@@ -21,12 +26,12 @@ h2 {
 }
 
 .buttons {
-  margin: 0%; //wip place buttons in centerrrrr
+   display: flex; justify-content: center;
 }
 
 #tic_tac_toe,
 #connectfour,
-#choosesecondgamesis {
+#brickbreaker {
   background-color: white;
   border: 1px solid black;
   color: black;
@@ -42,7 +47,7 @@ h2 {
 
 #tic_tac_toe:hover,
 #connectfour:hover,
-#choosesecondgamesis:hover {
+#brickbreaker:hover {
   background-color: #5b8eeb;
   color: white;
   cursor: pointer;
