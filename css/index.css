@@ -13,10 +13,6 @@ h1 {
   color: #5b8eeb;
 }
 
-.header {
-  background-color: #afe7f0;
-}
-
 h2 {
   margin: 0 auto;
   font-size: 25px;
@@ -25,13 +21,28 @@ h2 {
   font-family: "Monaco", monospace;
 }
 
+body {
+  background-color: #69adf0;
+}
+
+footer {
+  padding: 5px;
+  text-align: center;
+  background: #afe7f0 ;
+  color: black;
+  font-size: 30px;
+  font-family: "Monaco", monospace;
+}
+
+.header {
+  background-color: #afe7f0;
+}
+
 .buttons {
    display: flex; justify-content: center;
 }
 
-#tic_tac_toe,
-#connectfour,
-#brickbreaker {
+a {
   background-color: white;
   border: 1px solid black;
   color: black;
@@ -45,10 +56,8 @@ h2 {
 
 }
 
-#tic_tac_toe:hover,
-#connectfour:hover,
-#brickbreaker:hover {
-  background-color: #5b8eeb;
-  color: white;
+a:hover {
+  background-color: #afe7f0;
+  color: black;
   cursor: pointer;
 }
