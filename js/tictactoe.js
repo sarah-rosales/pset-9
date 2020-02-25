@@ -69,7 +69,7 @@ function checkWin(board, player) {
 function gameOver(gameWon) {
 	for (let index of winnningConditions[gameWon.index]) {
 		document.getElementById(index).style.backgroundColor =
-			gameWon.player == humanPlayer ? "gray" : "#6e6464";
+			gameWon.player == humanPlayer ? "#659de0" : "lightblue";
 	}
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].removeEventListener('click', takeTurn, false);
@@ -93,7 +93,7 @@ function bestSpot() {
 function checkTie() {
 	if (emptySquares().length == 0) {
 		for (var i = 0; i < cells.length; i++) {
-			cells[i].style.backgroundColor = "#c4c4c4";
+			cells[i].style.backgroundColor = "lightblue";
 			cells[i].removeEventListener('click', takeTurn, false);
 		}
 		getWinner("It's a tie!")
