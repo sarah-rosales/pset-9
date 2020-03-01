@@ -13,6 +13,7 @@ class Connect4 {
     this.COLMS = 7;
     this.selector = selector;
     this.createGrid();
+    this.setupEventListeners();
   }
 
   createGrid() {
@@ -22,10 +23,37 @@ class Connect4 {
         .addClass("row");
       for (let column = 0; column < this.COLMS; column++) {
         const $column = $("<div>")
-          .addClass("column empty");
+          .addClass("column empty")
+          .attr("data-column", column)
+          .attr("data-row", row);
         $row.append($column);
       }
       $board.append($row);
     }
+  }
+
+  setupEventListeners() {
+    const $board = $(this.selector);
+
+    function findLastEmptyCell(column) {
+      const cells = $(`.column[data-column="${column}"]`);
+      for (let i = cells.length - 1; i >= 0; i--) {
+        const $cell = $(cells[i]);
+        if ($cell.hasClass("empty")) {
+          return $cell;
+        }
+      }
+      return null;
+    }
+
+    $board.on("mouseenter", ".column.empty", function() {
+      const column = $(this).data("column");
+      const $lastEmptyCell = findLastEmptyCell(column);
+      $lastEmptyCell.addClass("next-red");
+    })
+
+    $board.on("mouseleave", ".column", function() {
+      $(".column").removeClass("next-red");
+    })
   }
 }
