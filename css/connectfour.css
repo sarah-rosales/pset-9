@@ -48,3 +48,17 @@ li a:hover {
   color: black;
   cursor: pointer;
 }
+
+#connect4 {
+  background-color: yellow;
+  display: inline-block;
+}
+
+.column {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  background-color: white;
+  border-radius: 50%;
+  margin: 5px;
+}
