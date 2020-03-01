@@ -50,8 +50,10 @@ li a:hover {
 }
 
 #connect4 {
-  background-color: yellow;
+  background-color: lightblue;
   display: inline-block;
+  justify-content: center;
+  align-items: center;
 }
 
 .column {
@@ -80,4 +82,24 @@ li a:hover {
 
 .column.black {
   background-color: black;
+}
+
+button {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  font-size: 21px;
+  line-height: 55px;
+  margin: 1%;
+  text-align: center;
+  width: 456px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  background-color: lightblue;
+  color: black;
+  cursor: pointer;
 }
