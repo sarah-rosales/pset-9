@@ -27,6 +27,7 @@ var bricks = [];
 ///////////////////// EVENT LISTENERS ///////////////////////////////
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false);
 
 ///////////////////// FUNCTIONS /////////////////////////////////////
 for (var c = 0; c < brickColumnCount; c++) {
@@ -53,6 +54,14 @@ function keyUpHandler(e) {
         leftPressed = false;
     }
 }
+
+function mouseMoveHandler(e) {
+    var relativeX = e.clientX - canvas.offsetLeft;
+    if(relativeX > 0 && relativeX < canvas.width) {
+        paddleX = relativeX - paddleWidth/2;
+    }
+}
+
 function collisionDetection() {
     for (var c = 0; c < brickColumnCount; c++) {
         for (var r = 0; r < brickRowCount; r++) {
@@ -63,7 +72,7 @@ function collisionDetection() {
                     b.status = 0;
                     score++;
                     if (score == brickRowCount*brickColumnCount) {
-                       alert("YOU WIN, CONGRATULATIONS!");
+                       alert("You are a winner!");
                        document.location.reload();
                        clearInterval(interval);
           }
@@ -132,7 +141,7 @@ function draw() {
             }
         }
         else {
-            alert("GAME OVER");
+            alert("Aw, you're a loser. Try again next time.");
             document.location.reload();
             clearInterval(interval);
         }
