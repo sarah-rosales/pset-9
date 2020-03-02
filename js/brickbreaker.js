@@ -18,6 +18,7 @@ var leftPressed = false;
 ///////////////////// EVENT LISTENERS ///////////////////////////////
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+
 ///////////////////// FUNCTIONS /////////////////////////////////////
 function keyDownHandler(e) {
   if (e.key == "Right" || e.key == "ArrowRight") {
@@ -58,25 +59,24 @@ function draw() {
 
   if (x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
     dx = -dx;
-    } if (y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+    } if(y + dy < ballRadius) {
         dy = -dy;
-      } if(rightPressed) {
-        paddleX += 7;
-        if (paddleX + paddleWidth > canvas.width){
-            paddleX = canvas.width - paddleWidth;
-        }
-    } else if(leftPressed) {
-        paddleX -= 7;
-          if (paddleX < 0) {
-              paddleX = 0;
+    } else if (y + dy > canvas.height-ballRadius) {
+        if (x > paddleX && x < paddleX + paddleWidth) {
+            dy = -dy;
+        } else {
+            alert("You lose! Game over!");
+            document.location.reload();
+            clearInterval(interval);
       }
+    } if (rightPressed && paddleX < canvas.width-paddleWidth) {
+        paddleX += 7;
+    } else if(leftPressed && paddleX > 0) {
+        paddleX -= 7;
     }
 
      x += dx;
      y += dy;
 }
 
-
-
-
-setInterval(draw, 10);
+var interval = setInterval(draw, 10);
